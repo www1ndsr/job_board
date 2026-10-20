@@ -8,10 +8,9 @@ import 'screens/job_detail_screen.dart';
 import 'screens/apply_form_screen.dart';
 import 'screens/my_applications_screen.dart';
 import 'screens/profile_screen.dart';
-import 'widgets/app_shell.dart'; // Создадим на шаге 4
+import 'widgets/app_shell.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
@@ -29,7 +28,7 @@ final router = GoRouter(
         return AppShell(navigationShell: navigationShell);
       },
       branches: [
-        // Ветка 1: Список вакансий и детальный просмотр / отклик
+        // Ветка 1: Список вакансий
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -37,7 +36,7 @@ final router = GoRouter(
               builder: (context, state) => const JobListScreen(),
               routes: [
                 GoRoute(
-                  path: ':id', // Пример: /jobs/1
+                  path: ':id',
                   builder: (context, state) {
                     final id = state.pathParameters['id']!;
                     return JobDetailScreen(jobId: id);
@@ -48,7 +47,7 @@ final router = GoRouter(
           ],
         ),
 
-        // Ветка 2: Форма отклика / Новая вакансия
+        // Ветка 2: Отклик
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -68,7 +67,7 @@ final router = GoRouter(
           ],
         ),
 
-        // Ветка 4: Профиль пользователя
+        // Ветка 4: Профиль
         StatefulShellBranch(
           routes: [
             GoRoute(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 import '../widgets/job_card.dart';
+import 'package:go_router/go_router.dart';
+
 
 class JobListScreen extends StatelessWidget {
   const JobListScreen({super.key});
@@ -158,9 +160,7 @@ class JobListScreen extends StatelessWidget {
 
                 return JobCard(
                   job: job,
-                  onTap: () {
-                    // На этапе L2 переход пока не реализован.
-                  },
+                  onTap: () => context.push('/jobs/${job.id}'),
                 );
               },
             ),

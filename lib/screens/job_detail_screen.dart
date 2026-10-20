@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import '../data/mock_data.dart';
 
 class JobDetailScreen extends StatelessWidget {
-  const JobDetailScreen({super.key});
+  const JobDetailScreen({super.key, required this.jobId});
+    final String jobId;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     
-    // Берём первую вакансию из мок-данных для демонстрации
-    final job = mockJobPosts.first;
+    final job = mockJobPosts.firstWhere(
+      (j) => j.id == jobId,
+      orElse: () => mockJobPosts.first,
+    );
+
 
     return Scaffold(
       appBar: AppBar(

@@ -146,7 +146,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   final List<Widget> _screens = [
     const AuthScreen(),
     const JobListScreen(),
-    const JobDetailScreen(),
+    const JobDetailScreen(jobId: '1'),
     const ApplyFormScreen(),
     const MyApplicationsScreen(),
     const ProfileScreen(),
