@@ -8,6 +8,8 @@ import 'screens/apply_form_screen.dart';
 import 'screens/my_applications_screen.dart';
 import 'screens/profile_screen.dart';
 
+import 'router.dart';
+
 void main() {
   runApp(const JobBoardApp());
 }
@@ -20,7 +22,7 @@ class JobBoardApp extends StatelessWidget {
     const primaryBlue = Color(0xFF1E88E5);
     const bgLight = Color(0xFFF7F9FC);
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'JobBoard FCIM',
       debugShowCheckedModeBanner: false,
 
@@ -125,7 +127,7 @@ class JobBoardApp extends StatelessWidget {
         ),
       ),
 
-      home: const MainNavigationScreen(),
+      routerConfig: router,
     );
   }
 }
